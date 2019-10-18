@@ -5,11 +5,19 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content class="menu-page">
+    <ion-card>
+        <img src="../../assets/imgs/banners/People-Banner-new.png"/>
+        <div class="card-title">Infinity Store</div>
+        <div class="card-subtitle">Infinite Shopping Experience</div>
+    </ion-card>
+    
     <ion-list>
-      <button menuClose ion-item>
-        Home
-      </button>
+      <ion-item *ngFor="let category of categories" text-wrap>
+          <ion-icon [name]="category.icon" item-left large></ion-icon>
+        <h2>{{category.name}}</h2>
+        <p>{{category.description}}</p>
+      </ion-item>
     </ion-list>
   </ion-content>
 
