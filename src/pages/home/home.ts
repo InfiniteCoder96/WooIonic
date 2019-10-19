@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Slides, ToastController } from 'ionic-angular';
 
+import { ProductDetailsPage } from '../product-details/product-details';
+
 import * as WC from 'woocommerce-api';
 
 @Component({
@@ -36,7 +38,7 @@ export class HomePage {
       this.products = JSON.parse(data.body).products;
     }, (err: any) => {
       console.log(err)
-    })
+    });
   }
 
   ionViewDidLoad(){
@@ -79,6 +81,10 @@ export class HomePage {
       console.log(err)
     })
 
+  }
+
+  openProductPage(product){
+    this.navCtrl.push(ProductDetailsPage, {"product": product})
   }
 
 }
